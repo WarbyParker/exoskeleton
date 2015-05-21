@@ -10,12 +10,12 @@
 (function(root, factory) {
   // Set up Backbone appropriately for the environment.
   if (typeof define === 'function' && define.amd) {
-    define(['underscore', 'jquery', 'exports'], function(_, $, exports) {
+    define(['lodash', 'jquery', 'exports'], function(_, $, exports) {
       root.Backbone = root.Exoskeleton = factory(root, exports, _, $);
     });
   } else if (typeof exports !== 'undefined') {
     var _, $;
-    try { _ = require('underscore'); } catch(e) { }
+    try { _ = require('lodash'); } catch(e) { }
     try { $ = require('jquery'); } catch(e) { }
     factory(root, exports, _, $);
   } else {
@@ -113,7 +113,6 @@
   var utilExists = function(method) {
     return typeof _[method] === 'function';
   };
-
   utils.result = function result(object, property) {
     var value = object ? object[property] : undefined;
     return typeof value === 'function' ? object[property]() : value;
