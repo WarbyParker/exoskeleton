@@ -1136,6 +1136,6 @@ if (utilExists('each')) {
   _.extend(Backbone, Events);
 
   // Create the default Backbone.history if the History module is included.
-  if (History) Backbone.history = new History();
+  if (Backbone.History) Backbone.history = new Backbone.History();
   return Backbone;
 });
